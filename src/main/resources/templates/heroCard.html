@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SuperHero Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            max-width: 350px;
+            text-align: center;
+            padding: 20px;
+        }
+        .card img {
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        .card h2 {
+            margin: 0 0 10px;
+        }
+        .card p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .stats {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .stat {
+            background: #eee;
+            border-radius: 8px;
+            padding: 10px 15px;
+            width: 45%;
+            box-shadow: inset 0 0 5px #ccc;
+        }
+        .stat strong {
+            display: block;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img th:src="${hero.imageUrl}" alt="SuperHero Image"/>
+        <h2 th:text="${hero.name}">Hero Name</h2>
+        <p><strong>Full Name:</strong> <span th:text="${hero.fullName}">Full Name</span></p>
+        <p><strong>Publisher:</strong> <span th:text="${hero.publisher}">Publisher</span></p>
+
+        <div class="stats">
+            <div class="stat">
+                <strong th:text="${hero.intelligence}">0</strong>
+                Intelligence
+            </div>
+            <div class="stat">
+                <strong th:text="${hero.power}">0</strong>
+                Power
+            </div>
+        </div>
+    </div>
+</body>
+</html>
